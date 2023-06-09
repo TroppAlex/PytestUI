@@ -26,9 +26,8 @@ def test_productId():
     headers = get_request_header(url, {'productId': productId})
     assert headers['Content-Type'] == 'application/json;charset=utf-8'
 
-def test_productId():
-    # https://www.ringcentral.com/services/plans-and-pricing.servlet?productId=blabla
-    productId = 'blabla'
+def test_product():
+    productId = 'blabla1'
     response = get_request_json(url, {'productId': productId})
     assert response['statusCode'] == 400
     message = 'Request parameter "productId" value "' + productId + '" issue: Validation failed'
@@ -37,12 +36,5 @@ def test_productId():
     headers = get_request_header(url, {'productId': productId})
     assert headers['Content-Type'] == 'application/json;charset=utf-8'
 
-# url_parts = list(urlparse.urlparse(url))
-# query = dict(urlparse.parse_qsl(url_parts[4]))
-# query.update(params)
-#
-# url_parts[4] = urlencode(query)
-#
-# # Готовый URL
-# new_url = urlparse.urlunparse(url_parts)
+
 
