@@ -18,6 +18,8 @@ def driver_init(request):
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
     chrome_driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
     request.cls.driver = chrome_driver
     yield
     chrome_driver.close()
